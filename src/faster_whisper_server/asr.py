@@ -35,6 +35,8 @@ class FasterWhisperASR:
             audio.data,
             initial_prompt=prompt,
             word_timestamps=True,
+            batch_size=4,
+            beam_size=3,
             **self.transcribe_opts,
         )
         segments = TranscriptionSegment.from_faster_whisper_segments(segments)
