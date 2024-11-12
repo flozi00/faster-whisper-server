@@ -10,7 +10,6 @@ from faster_whisper_server.text_utils import Transcription
 
 if TYPE_CHECKING:
     from faster_whisper import transcribe
-
     from faster_whisper_server.audio import Audio
 
 logger = logging.getLogger(__name__)
@@ -36,7 +35,7 @@ class FasterWhisperASR:
             initial_prompt=prompt,
             word_timestamps=True,
             batch_size=1,
-            beam_size=3,
+            beam_size=8,
             **self.transcribe_opts,
         )
         segments = TranscriptionSegment.from_faster_whisper_segments(segments)
