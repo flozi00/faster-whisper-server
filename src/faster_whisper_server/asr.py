@@ -35,8 +35,8 @@ class FasterWhisperASR:
             initial_prompt=prompt,
             word_timestamps=True,
             batch_size=1,
-            beam_size=8,
-            vad_filter=True,
+            beam_size=3,
+            vad_filter=False,
             **self.transcribe_opts,
         )
         segments = TranscriptionSegment.from_faster_whisper_segments(segments)
